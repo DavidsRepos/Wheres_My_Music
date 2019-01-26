@@ -1,0 +1,241 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0px solid transparent;
+    background: url("../images/live5.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: black;
+    position: relative;
+}
+
+#venue-info {
+    padding: 40px 0px;
+    display: none;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+    background: url("../images2/jumbo2.gif");
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    background-color: black;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border: 6px solid rgb(36, 36, 36);
+}
+
+.text-left {
+    color: white;
+    text-shadow: black 0.25em 0.25em 0.25em;
+}
+
+.fa-heart,
+.fa-map-marked-alt,
+.tix {
+    cursor: pointer;
+}
+
+.holder {
+    display: inline-block;
+    width: 100%;
+  /*  flex-wrap: wrap; */
+    padding: 5px;
+    margin: 10px 0px;
+    background-color: black;
+    border-radius: 8px;
+    border: 3px wheat;
+    border-style: double;
+    color: whitesmoke;
+}
+
+.holder img {
+    border-radius: 8px;
+    margin:10px 15px 10px 10px;
+    border: 1px solid wheat;
+}
+
+.leaflet-container {
+    float: left;
+    width: 100%;
+    min-height: 100%;
+    padding: 5px;
+    margin: 10px;
+    background-color: black;
+    border-radius: 8px;
+    border: 3px wheat;
+    border-style: double;
+}
+
+.fa-mouse-pointer {
+    float: right;
+    margin: 0px 20px;
+    transform: rotate(150deg);   
+}
+
+.tix img {
+    float: right;
+    width: 100%;
+    height: auto;
+    border: none;
+    filter:brightness(150%);
+    transition: 0.2s;
+}
+
+.tix img:hover {
+    filter:brightness(140%);
+}
+
+#upBtn {
+    display: inline-block;
+    background-color: whitesmoke;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    vertical-align: middle;
+    position: fixed;
+    bottom: 49px;
+    right: 30px;
+    transition: background-color .3s,
+    opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    border-radius: 50%;
+    border: 1px solid whitesmoke;
+}
+
+#upBtn::after {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: whitesmoke;
+}
+
+#upBtn:hover {
+    cursor: pointer;
+    background-color: gold;
+}
+
+#upBtn:active {
+    background-color: gold;
+}
+
+#upBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#mapid { 
+    height: 220px;
+}  
+
+.favImg {
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+#delete{
+    color:red;
+    float:right;
+}
+
+.tix {
+    animation: blinker 2s cubic-bezier(.8, 1, 1, 1) infinite alternate;
+}
+@keyframes blinker {
+    from {
+        opacity: 1;
+   }
+    to {
+        opacity: 0.3;
+   }
+}
+
+.error {
+    color: white;
+    font-size: 1em;
+    animation: blinker .2s cubic-bezier(.8, 1, 1, 1) infinite alternate;
+}
+
+
+
+ /* Wobble To Top Right */
+ @-webkit-keyframes tix {
+    16.65% {
+      -webkit-transform: translate(8px, -8px);
+      transform: translate(8px, -8px);
+    }
+    33.3% {
+      -webkit-transform: translate(-6px, 6px);
+      transform: translate(-6px, 6px);
+    }
+    49.95% {
+      -webkit-transform: translate(4px, -4px);
+      transform: translate(4px, -4px);
+    }
+    66.6% {
+      -webkit-transform: translate(-2px, 2px);
+      transform: translate(-2px, 2px);
+    }
+    83.25% {
+      -webkit-transform: translate(1px, -1px);
+      transform: translate(1px, -1px);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes tix {
+    16.65% {
+      -webkit-transform: translate(8px, -8px);
+      transform: translate(8px, -8px);
+    }
+    33.3% {
+      -webkit-transform: translate(-6px, 6px);
+      transform: translate(-6px, 6px);
+    }
+    49.95% {
+      -webkit-transform: translate(4px, -4px);
+      transform: translate(4px, -4px);
+    }
+    66.6% {
+      -webkit-transform: translate(-2px, 2px);
+      transform: translate(-2px, 2px);
+    }
+    83.25% {
+      -webkit-transform: translate(1px, -1px);
+      transform: translate(1px, -1px);
+    }
+    100% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
+  .tix {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .tix:hover, .tix:focus, .tix:active {
+    -webkit-animation-name: tix;
+    animation-name: tix;
+    -webkit-animation-duration: 1.2s;
+    animation-duration: 1.2s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }

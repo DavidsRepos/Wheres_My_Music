@@ -1,1 +1,2 @@
-# Wheres_My_Music
+# Project1
+Group Project 1

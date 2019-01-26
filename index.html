@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Where's My Music?</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+
+    <!-- jQuery link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebasejs link-->
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <!--Momentjs link-->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <br>  <!-- KEEP THESE HERE FOR JUMBOTRON HEIGHT-->
+            <h1 class="text-left">Where's My Music?</h1>
+            <br>  <!-- KEEP THESE HERE FOR JUMBOTRON HEIGHT-->
+            <br>  <!-- KEEP THESE HERE FOR JUMBOTRON HEIGHT-->
+            
+            
+            <form>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <strong> <label for="bidder-name">Artist/Band name</label></strong>
+                        <input class="form-control" id="Band-Name" type="text" autofocus="autofocus">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <strong> <label for="bidder-price">City</label> </strong>
+                        <input class="form-control" id="CityName" type="text">
+                    </div>
+
+                </div>
+
+                <br>  <!-- KEEP THESE HERE FOR JUMBOTRON HEIGHT-->
+
+                <div class="row">
+                    <div class="col-sm-6 mb-2">
+                        <button class="btn btn-primary" id="submit-Search" type="submit">Submit</button>
+                    </div>
+                    
+                    <div class="col-sm-6 mb-2">
+                        <button class="btn btn-primary" id="favorite">Favorites</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+         <div class="row">
+            <div class="col-sm-8">
+                <div id="search-results">
+                    <!-- Search results go here -->
+                    <div id="venue-fav">
+                        <!-- venue name/pic/city info + ticket url <button> go here (js .addClass) -->
+                    </div>
+                </div>
+
+            </div>
+         </div>
+         
+        
+        
+        
+        <div class="row">
+            <div class="col-sm-8">
+                <div id="search-results">
+                    <!-- Search results go here -->
+                    <div id="venue-info">
+                        <!-- venue name/pic/city info + ticket url <button> go here (js .addClass) -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-4">
+                <div id="mapid">
+                    <!-- Map to venue goes here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <a id="upBtn">
+                <i class="fas fa-arrow-circle-up fa-2x" title="Back to Top!"></i>
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- Moment JS link -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <!-- Leaflet JS link -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+
+
+    <!-- My javascript link-->
+    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/code.js"></script>
+
+
+
+
+</body>
+
+</html>
