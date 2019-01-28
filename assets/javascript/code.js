@@ -1,5 +1,9 @@
+var venueLong = "";
+var venueLat = "";
+
 
 $(document).ready(function () {
+
 
 
 var config = {
@@ -103,57 +107,10 @@ $.ajax({
         var eventImage = response._embedded.events[i].images[0].url;
         var venueCity = response._embedded.events[i]._embedded.venues[0].city.name;
         var venueCountry = response._embedded.events[i]._embedded.venues[0].country.name;
-        var venueLong = response._embedded.events[i]._embedded.venues[0].location.longitude;
-        var venueLat = response._embedded.events[i]._embedded.venues[0].location.latitude;
+        venueLong = response._embedded.events[i]._embedded.venues[0].location.longitude;
+        venueLat = response._embedded.events[i]._embedded.venues[0].location.latitude;
         var venueName  = response._embedded.events[i]._embedded.venues[0].name; //venue name
-        var artistName  = response._embedded.events[i]._embedded.attractions[0].name; //artist name
-
-        console.log(eventName);
-        console.log(eventURL);
-        console.log(localeventDate);
-        console.log(localeventTime);
-        console.log(eventImage);
-        console.log(venueCity);
-        console.log(venueCountry);
-        console.log(venueLong);
-        console.log(venueLat);
-        console.log(response._embedded.events[i].priceRanges);
-        console.log(venueName);
-    
-            if (city === "" || city != null) {
-                $("#mapid").hide();
-                $("#Band-Name").focus();
-
-            } 
-        //     else {
-            
-
-        //   //adding the map function through Leaflet Issues#13
-        //   function addMap() {
-        //     $("#mapid").empty();
-        //     var mymap = L.map('mapid').setView([venueLat, venueLong], 13);
-        //     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        //     maxZoom: 18,
-        //     id: 'mapbox.streets',
-        //     accessToken: 'pk.eyJ1IjoiYWFybTQ3MDIiLCJhIjoiY2pyM3RiNmw5MGU1bDN5bXk5MXE1ZGs2bSJ9.QbhjZk1rjfQb2fo7bvI-8A'
-        //         }).addTo(mymap);         
-    
-        //     //getting the marker in map using the venue Name
-        //     var marker = L.marker([venueLat, venueLong]).addTo(mymap);
-        //     marker.bindPopup("<b>Venue</b><br>" + venueName).openPopup();
-            
-        //     };
-            
-        //     $("#mapid").append(addMap);
-
-        //     // this always brings the cursor back to artist text field after submit
-        //     $("#Band-Name").focus();
-            
-        // } // end of if statement for city search
-
-            // $("#mapid").show();
-        
+        var artistName  = response._embedded.events[i]._embedded.attractions[0].name; //artist name       
 
          // Creating a div for the info                  
          var venueDiv = $("<div>", {class: 'holder'});
@@ -166,6 +123,9 @@ $.ajax({
  
          //  Creating a new variable to include data for eventImage
          var image = $("<img>").attr("src", eventImage).css("width", "50%").css("height", "auto").css("float","left");
+         image.addClass("imageclick");
+   
+    
          
          // create a div and button for a favorite button
          var favBtn = $("<p class='far fa-heart fa-lg' id='heart'></p>").css("padding","3px");
@@ -182,7 +142,8 @@ $.ajax({
          var googleMap = "https://www.google.com/maps/@" + venueLat + "," + venueLong + ",15z";
          var mapBtn = $("<a>", {class:"fas fa-map-marked-alt fa-lg"}).attr("href", googleMap).attr("target","_blank").attr("title","Map").css("float","right").css("color","yellow").css("padding","3px");
          mapBtn.attr({'favorite-status': 'No'});
-         console.log(googleMap);
+         mapBtn.addClass("rendermap");
+        //  console.log(googleMap);
 
          // create a div and button for a ticket purchase page
          var ticketBtn = $("<a>", {class: "tix"}).attr("href", eventURL).attr("target","_blank").attr("title","Buy Tickets Now!").css("float","right").css("width", "20%").css("height", "auto");
@@ -199,8 +160,7 @@ $.ajax({
          var normalizeBand = bandName.toUpperCase();
          var eventBand = artistName.toUpperCase();
 
-         console.log(normalizeBand);
-         console.log(eventBand);
+
 
         };  // end of for loop
 
@@ -216,9 +176,9 @@ $(document.body).on("click", "#heart", function () {
           
     var favStatus = $(this).attr("favorite-status");
     var parentCard = $(this).attr("data-promoter");
- //   var parentCardID = "#" + parentCard;
+
     
-    console.log(favStatus);
+
     
     // Add to Favorites section
     if (favStatus === "No") {
@@ -235,8 +195,7 @@ $(document.body).on("click", "#heart", function () {
                VenueLatLong : $(this).attr("data-LatLong"),
                venueCity : $(this).attr("data-venue"),
                favoriteStatus : $(this).attr('favorite-status'),
-        
-           
+          
             }
             
                database.ref().push(favSav);
@@ -252,11 +211,9 @@ $(document.body).on("click", "#heart", function () {
 
     database.ref().on("child_added", function(snapshot){
        
-        console.log(snapshot.val());
+        // console.log(snapshot.val());
         
             $("#favorite").attr(snapshot.val());
-        
-    
     
             $("#favorite").on("click" , function (event) {
                 event.preventDefault();
@@ -283,7 +240,7 @@ $(document.body).on("click", "#heart", function () {
                  var googleMap = "https://www.google.com/maps/@" + snapshot.val().venueLat + "," + snapshot.val().venueLong + ",15z";
                  var mapBtn = $("<a>", {class:"fas fa-map-marked-alt fa-lg"}).attr("href", googleMap).attr("target","_blank").css("float","right").css("color","yellow").css("padding","3px");
                  mapBtn.attr({'favorite-status': 'No'});
-                 console.log(googleMap);
+                //  console.log(googleMap);
         
                  // create a div and button for a ticket purchase page
                  var ticketBtn = $("<a>", {class: "tix"}).attr("href", snapshot.val().eventURL).attr("target","_blank").attr("title","Buy Tickets Now!").css("float","right").css("width", "20%").css("height", "auto");
