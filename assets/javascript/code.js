@@ -7,12 +7,12 @@ $(document).ready(function () {
 
 
 var config = {
-    apiKey: "AIzaSyDz_0KKxD5xNCPQjwG-66J5Vjky4qM6-Lg",
-    authDomain: "uden-bootcamp-project-1-team-1.firebaseapp.com",
-    databaseURL: "https://uden-bootcamp-project-1-team-1.firebaseio.com",
-    projectId: "uden-bootcamp-project-1-team-1",
-    storageBucket: "uden-bootcamp-project-1-team-1.appspot.com",
-    messagingSenderId: "68929725202"
+    apiKey: "AIzaSyC4zxltnljcbEqmFNnDLxwsKOZZwPCFr4o",
+    authDomain: "wheresmymusic-41cff.firebaseapp.com",
+    databaseURL: "https://wheresmymusic-41cff.firebaseio.com",
+    projectId: "wheresmymusic-41cff",
+    storageBucket: "",
+    messagingSenderId: "270794472389"
   };
   
   firebase.initializeApp(config);
