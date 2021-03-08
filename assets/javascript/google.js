@@ -29,7 +29,7 @@
 // });
    
     
-    // var googleAPI = "AIzaSyC9zfEWNWOOe7okPSVnnbBbkd4o2yVGhho";
+    // var googleAPI = "";
 
     // var googletURL = src="https://maps.googleapis.com/maps/api/js?key=" + googleAPI + "&callback=initMap";
     
