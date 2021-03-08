@@ -93,13 +93,12 @@ $.ajax({
 
     //Process API Get response
     }).then(function(response){
-        console.log(response);
-        if (response._embedded.events[0].name === undefined) {
-            alert("No Events Found for" + bandName)
-            }
+        console.log("response:" + response);
         //Loop through for 10 event results print to screen
         for (i = 0; i < 10; i++) {
-            
+            if (response._embedded.events[i].name === undefined) {
+               alert("No Events Found for" + bandName)
+            }
         var eventName = response._embedded.events[i].name;
         var eventURL = response._embedded.events[i].url;
         var localeventDate = response._embedded.events[i].dates.start.localDate;
