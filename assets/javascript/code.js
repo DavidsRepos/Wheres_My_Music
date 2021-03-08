@@ -93,13 +93,12 @@ $.ajax({
 
     //Process API Get response
     }).then(function(response){
-       
         // Loop through for 10 event results print to screen
         for (i = 0; i < 10; i++) {
-            console.log("response2:" + response._embedded.events[i]);
-           // if (response._embedded.events[i].name === undefined) {
-             //  alert("No Events Found for" + bandName)
-            // }
+
+           if (response.page.totalElements === 0) {
+             $("#modal").css("display", "block");
+            }
         var eventName = response._embedded.events[i].name;
         var eventURL = response._embedded.events[i].url;
         // var localeventDate = response._embedded.events[i].dates.start.localDate;
@@ -305,6 +304,24 @@ $(document.body).on("click", "#heart", function () {
          btn.removeClass('show');
         }
     });
+
+    $("#modal").on("click", function(){
+        $("#modal").css("display", "none");
+  
+      });
+  
+      $(".close").on("click", function(){
+        $("#modal").css("display", "none");
+  
+      });
+  
+      // When the user clicks anywhere outside of the modal, close it
+  
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          $("#modal").css("display", "none");
+          };
+        };
 
     btn.on('click', function (e) {
      e.preventDefault();
