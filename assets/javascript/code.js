@@ -94,14 +94,14 @@ $.ajax({
     //Process API Get response
     }).then(function(response){
         console.log("response:" + response);
-        //Loop through for 10 event results print to screen
+        // Loop through for 10 event results print to screen
         for (i = 0; i < 10; i++) {
             if (response._embedded.events[i].name === undefined) {
                alert("No Events Found for" + bandName)
             }
         var eventName = response._embedded.events[i].name;
         var eventURL = response._embedded.events[i].url;
-        var localeventDate = response._embedded.events[i].dates.start.localDate;
+        // var localeventDate = response._embedded.events[i].dates.start.localDate;
         var localeventDateUnformatted = response._embedded.events[i].dates.start.localDate;
         var localeventDate = moment(localeventDateUnformatted).format("MMMM Do YYYY")
         var localeventTime = response._embedded.events[i].dates.start.localTime;
