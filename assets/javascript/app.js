@@ -3,8 +3,8 @@ $(document).ready(function () {
     var count = 0, bg;
     var $body = $("body");
     var imageArray = [ 
-        /images/c0.jpg,
-        /images/c1.jpg
+        assets/images/c0.jpg,
+        assets/images/c1.jpg
     ];
 
     setInterval(function () {
