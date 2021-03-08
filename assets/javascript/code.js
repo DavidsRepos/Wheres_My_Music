@@ -96,7 +96,7 @@ $.ajax({
        
         // Loop through for 10 event results print to screen
         for (i = 0; i < 10; i++) {
-            console.log("response:" + response._embedded.events[i]);
+            console.log("response2:" + response._embedded.events[i]);
            // if (response._embedded.events[i].name === undefined) {
              //  alert("No Events Found for" + bandName)
             // }
