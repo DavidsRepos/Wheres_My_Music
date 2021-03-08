@@ -97,7 +97,7 @@ $.ajax({
         //Loop through for 10 event results print to screen
         for (i = 0; i < 10; i++) {
             
-        var eventName = response._embedded.events[i].name;
+        // var eventName = response._embedded.events[i].name;
         var eventURL = response._embedded.events[i].url;
         var localeventDate = response._embedded.events[i].dates.start.localDate;
         var localeventDateUnformatted = response._embedded.events[i].dates.start.localDate;
