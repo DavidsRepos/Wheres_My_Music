@@ -86,7 +86,7 @@ body {
     height: auto;
     border: none;
     filter:brightness(150%);
-    transition: 0.2s;
+    /* transition: 0.2s; */
 }
 
 .tix img:hover {
@@ -149,8 +149,8 @@ body {
     float:right;
 }
 
-.tix {
-    animation: blinker 2s cubic-bezier(.8, 1, 1, 1) infinite alternate;
+/* .tix {
+    animation: blinker 2s cubic-bezier(.8, 1, 1, 1) infinite alternate; */
 }
 @keyframes blinker {
     from {
