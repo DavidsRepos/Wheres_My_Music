@@ -86,7 +86,6 @@ body {
     height: auto;
     border: none;
     filter:brightness(150%);
-    /* transition: 0.2s; */
 }
 
 .tix img:hover {
@@ -149,22 +148,9 @@ body {
     float:right;
 }
 
-/* .tix {
-    animation: blinker 2s cubic-bezier(.8, 1, 1, 1) infinite alternate; */
-}
-@keyframes blinker {
-    from {
-        opacity: 1;
-   }
-    to {
-        opacity: 0.3;
-   }
-}
-
 .error {
     color: white;
     font-size: 1em;
-    /* animation: blinker .2s cubic-bezier(.8, 1, 1, 1) infinite alternate; */
 }
 
 
@@ -204,75 +190,11 @@ The Close Button
   cursor: pointer;
 }
 
-
-
- /* Wobble To Top Right */
- @-webkit-keyframes tix {
-    16.65% {
-      -webkit-transform: translate(8px, -8px);
-      transform: translate(8px, -8px);
-    }
-    33.3% {
-      -webkit-transform: translate(-6px, 6px);
-      transform: translate(-6px, 6px);
-    }
-    49.95% {
-      -webkit-transform: translate(4px, -4px);
-      transform: translate(4px, -4px);
-    }
-    66.6% {
-      -webkit-transform: translate(-2px, 2px);
-      transform: translate(-2px, 2px);
-    }
-    83.25% {
-      -webkit-transform: translate(1px, -1px);
-      transform: translate(1px, -1px);
-    }
-    100% {
-      -webkit-transform: translate(0, 0);
-      transform: translate(0, 0);
-    }
+.tix {
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   }
-  @keyframes tix {
-    16.65% {
-      -webkit-transform: translate(8px, -8px);
-      transform: translate(8px, -8px);
-    }
-    33.3% {
-      -webkit-transform: translate(-6px, 6px);
-      transform: translate(-6px, 6px);
-    }
-    49.95% {
-      -webkit-transform: translate(4px, -4px);
-      transform: translate(4px, -4px);
-    }
-    66.6% {
-      -webkit-transform: translate(-2px, 2px);
-      transform: translate(-2px, 2px);
-    }
-    83.25% {
-      -webkit-transform: translate(1px, -1px);
-      transform: translate(1px, -1px);
-    }
-    100% {
-      -webkit-transform: translate(0, 0);
-      transform: translate(0, 0);
-    }
-  }
-  .tix {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  }
-  .tix:hover, .tix:focus, .tix:active {
-    -webkit-animation-name: tix;
-    animation-name: tix;
-    -webkit-animation-duration: 1.2s;
-    animation-duration: 1.2s;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
+.tix:hover, .tix:focus, .tix:active {
+  opacity: 80%
   }
